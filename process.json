@@ -1,9 +1,11 @@
 {
     "apps": [
         {
-            "name": "my-bot",
+            "name": "edagile",
             "script": "dist/app.js",
-            "node_args": ["--enable-source-maps"],
+            "node_args": [
+                "--enable-source-maps"
+            ],
             "restart_delay": 10000
         }
     ]

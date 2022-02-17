@@ -1,8 +1,8 @@
 {
-    "name": "my-bot",
+    "name": "edagile",
     "version": "1.0.0",
-    "author": "Kevin Novak",
-    "description": "A discord.js bot template written with TypeScript",
+    "author": "Pebloop, Concordia, Trompettesib",
+    "description": "Link discord and Jira with this bot ! Support poker planning and task management.",
     "license": "MIT",
     "private": true,
     "engines": {
