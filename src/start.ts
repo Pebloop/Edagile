@@ -13,6 +13,7 @@ import {
     LinkCommand,
     TestCommand,
     TranslateCommand,
+    PokerCommand,
 } from './commands/index.js';
 import {
     ButtonHandler,
@@ -55,6 +56,7 @@ async function start(): Promise<void> {
         new TestCommand(),
         new TranslateCommand(),
         // TODO: Add new commands here
+        new PokerCommand(),
     ].sort((a, b) => (a.metadata.name > b.metadata.name ? 1 : -1));
 
     // Buttons

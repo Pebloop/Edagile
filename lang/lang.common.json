@@ -9,7 +9,10 @@
         "info": "info",
         "link": "link",
         "test": "test",
-        "translate": "translate"
+        "translate": "translate",
+        "poker": "poker",
+        "vote": "vote",
+        "stop": "stop"
     },
     "arguments": {
         "link": "link"

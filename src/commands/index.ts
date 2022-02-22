@@ -4,4 +4,5 @@ export { HelpCommand } from './help-command.js';
 export { InfoCommand } from './info-command.js';
 export { LinkCommand } from './link-command.js';
 export { TestCommand } from './test-command.js';
+export { PokerCommand } from './poker-command.js';
 export { TranslateCommand } from './translate-command.js';
