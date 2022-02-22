@@ -15,7 +15,8 @@
         "stop": "stop"
     },
     "arguments": {
-        "link": "link"
+        "link": "link",
+        "value": "value"
     },
     "colors": {
         "default": "#0099ff",

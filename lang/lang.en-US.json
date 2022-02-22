@@ -115,8 +115,14 @@
                     }
                 ]
             },
-            "poker": {
+            "poker_start": {
                 "description": "Launching poker planning.\nPlease choose issue name."
+            },
+            "poker_issue": {
+                "description": "Issue set!\n please start voting in private."
+            },
+            "poker_stop": {
+                "description": "Issue set!\n please start voting in private."
             },
             "vote": {
                 "description": "Launching poker planning.\nPlease choose issue name."
@@ -215,7 +221,9 @@
             "link": "Get links to invite, support, etc.",
             "test": "Run the test command.",
             "translate": "View translation info.",
-            "poker": "Start poker planning."
+            "poker": "Start poker planning.",
+            "stop": "Stop poker planning vote",
+            "vote": "Vote during poker planning."
         },
         "lists": {
             "languageItem": "**{{LANGUAGE_NAME}}** (`{{LANGUAGE_KEYWORD}}`)"

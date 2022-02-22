@@ -20,10 +20,7 @@ export class PokerCommand implements Command {
     public requireUserPerms: PermissionString[] = [];
 
     public async execute(intr: CommandInteraction, data: EventData): Promise<void> {
-        if (global.pokerData == null) {
-            global.pokerData = new PokerData();
-        }
-        await InteractionUtils.send(intr, Lang.getEmbed('displayEmbeds.poker', data.lang()));
+        await InteractionUtils.send(intr, Lang.getEmbed('displayEmbeds.poker_start', data.lang()));
         global.pokerData.start();
 
     }

@@ -115,6 +115,21 @@
                     }
                 ]
             },
+            "poker_start": {
+                "description": "Launching poker planning.\nPlease choose issue name."
+            },
+            "poker_issue": {
+                "description": "Issue set!\n please start voting in private."
+            },
+            "poker_stop": {
+                "description": "Issue set!\n please start voting in private."
+            },
+            "vote": {
+                "description": "Launching poker planning.\nPlease choose issue name."
+            },
+            "stop": {
+                "description": "Launching poker planning.\nPlease choose issue name."
+            },
             "linkDocs": {
                 "title": "{{COM:bot.name}} - Documentation",
                 "description": "Click [here]({{COM:links.docs}}/) to view the bot documentation."

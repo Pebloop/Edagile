@@ -6,3 +6,5 @@ export { LinkCommand } from './link-command.js';
 export { TestCommand } from './test-command.js';
 export { PokerCommand } from './poker-command.js';
 export { TranslateCommand } from './translate-command.js';
+export { StopCommand } from './stop-command.js';
+export { VoteCommand } from './vote-command.js';

@@ -15,6 +15,8 @@ import {
     TranslateCommand,
     PokerCommand,
 } from './commands/index.js';
+import { StopCommand } from './commands/stop-command.js';
+import { VoteCommand } from './commands/vote-command.js';
 import {
     ButtonHandler,
     CommandHandler,
@@ -26,6 +28,7 @@ import {
 } from './events/index.js';
 import { CustomClient } from './extensions/index.js';
 import { Job } from './jobs/index.js';
+import { PokerData } from './poker.js';
 import { Reaction } from './reactions/index.js';
 import { JobService, Logger } from './services/index.js';
 import { Trigger } from './triggers/index.js';
@@ -35,6 +38,8 @@ let Config = require('../config/config.json');
 let Logs = require('../lang/logs.json');
 
 async function start(): Promise<void> {
+    global.pokerData = new PokerData();
+
     // Client
     let client = new CustomClient({
         intents: Config.client.intents,
@@ -57,6 +62,8 @@ async function start(): Promise<void> {
         new TranslateCommand(),
         // TODO: Add new commands here
         new PokerCommand(),
+        new VoteCommand(),
+        new StopCommand(),
     ].sort((a, b) => (a.metadata.name > b.metadata.name ? 1 : -1));
 
     // Buttons

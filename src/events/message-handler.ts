@@ -15,11 +15,10 @@ export class MessageHandler implements EventHandler {
         // Process trigger
         await this.triggerHandler.process(msg);
 
-        if (global.pokerData.status === Status.Naming) {
+        if (global.pokerData.checkStatus(Status.Naming)) {
             global.pokerData.setIssue(msg.content);
-            global.pokerData.next();
-            msg.reply("Issue set!\n please start voting in private.");
+            global.pokerData.vote();
+            msg.reply("Issue set!\n please start voting with /vote [value].");
         }
-
     }
 }
