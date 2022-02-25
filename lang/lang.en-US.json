@@ -223,7 +223,9 @@
             "translate": "View translation info.",
             "poker": "Start poker planning.",
             "stop": "Stop poker planning vote",
-            "vote": "Vote during poker planning."
+            "vote": "Vote during poker planning.",
+            "set-channel": "Add a channel to the whitelist.",
+            "unset-channel": "remove the channel from the whitelist."
         },
         "lists": {
             "languageItem": "**{{LANGUAGE_NAME}}** (`{{LANGUAGE_KEYWORD}}`)"

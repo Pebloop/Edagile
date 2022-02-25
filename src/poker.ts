@@ -1,3 +1,30 @@
+import { User } from "discord.js";
+
+export class BotData {
+    guilds: Map<string, GuildData>;
+
+    constructor() {
+        this.guilds = new Map<string, GuildData>();
+    }
+
+    public getGuild(id: string): GuildData {
+        if (this.guilds.has(id)) {
+            return this.guilds.get(id);
+        } else {
+            this.guilds.set(id, new GuildData());
+            return this.guilds.get(id);
+        }
+    }
+}
+
+export class GuildData {
+    reservedChannel: Array<string> = [];
+    poker: PokerData = new PokerData();
+
+    constructor() {
+    }
+}
+
 export enum Status {
     None = 0,
     Naming = 1,
@@ -5,18 +32,42 @@ export enum Status {
     Result = 3
 }
 
+export class VoterData {
+    vote: number;
+    user: User;
+
+    constructor(user: User, vote: number) {
+        this.user = user;
+        this.vote = vote;
+    }
+}
+
 export class PokerData {
     issue: string;
     status: Status = Status.None;
-    value: number = 0;
+    votes = new Map<string, VoterData>();
 
     constructor() {
         this.issue = '';
         this.status = Status.None;
     }
 
-    public setValue(value: number): void {
-        this.value = value;
+    public setVote(user: User, value: number): void {
+        this.votes.set(user.id, new VoterData(user, value));
+    }
+
+    public getVoters(): Array<string> {
+        let users = new Array<string>();
+
+        this.votes.forEach((value, key) => {
+            users.push(key);
+        });
+
+        return users;
+    }
+
+    public getNbVotes(): number {
+        return this.votes.size;
     }
 
     public setIssue(issue: string): void {
@@ -24,6 +75,7 @@ export class PokerData {
     }
 
     public start(): void {
+        this.votes.clear();
         this.status = Status.Naming;
     }
 
@@ -65,5 +117,5 @@ export class PokerData {
 }
 
 declare global {
-    var pokerData: PokerData;
+    var botData: BotData;
 }

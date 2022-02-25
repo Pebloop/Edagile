@@ -12,7 +12,9 @@
         "translate": "translate",
         "poker": "poker",
         "vote": "vote",
-        "stop": "stop"
+        "stop": "stop",
+        "set-channel": "set-channel",
+        "unset-channel": "unset-channel"
     },
     "arguments": {
         "link": "link",

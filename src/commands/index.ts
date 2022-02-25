@@ -8,3 +8,5 @@ export { PokerCommand } from './poker-command.js';
 export { TranslateCommand } from './translate-command.js';
 export { StopCommand } from './stop-command.js';
 export { VoteCommand } from './vote-command.js';
+export { SetChannelCommand } from './set-channel-command.js';
+export { UnsetChannelCommand } from './unset-channel-command.js';

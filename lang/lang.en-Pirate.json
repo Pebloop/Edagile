@@ -130,6 +130,12 @@
             "stop": {
                 "description": "Launching poker planning.\nPlease choose issue name."
             },
+            "set-channel": {
+                "description": "Set the channels the bot can use."
+            },
+            "unset-channel": {
+                "description": "Remove a channel a bot can use."
+            },
             "linkDocs": {
                 "title": "{{COM:bot.name}} - Documentation",
                 "description": "Click [here]({{COM:links.docs}}/) to view the bot documentation."
@@ -219,7 +225,9 @@
             "translate": "View translation info.",
             "poker": "Start poker planning.",
             "vote": "Vote the issue of a poker planning.",
-            "stop": "Stop the vote during a poker planning."
+            "stop": "Stop the vote during a poker planning.",
+            "set-channel": "Add a channel to the whitelist.",
+            "unset-channel": "remove the channel from the whitelist."
         },
         "lists": {
             "languageItem": "**{{LANGUAGE_NAME}}** (`{{LANGUAGE_KEYWORD}}`)"

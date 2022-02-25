@@ -1,7 +1,7 @@
 import { Message } from 'discord.js';
 
 import { EventHandler, TriggerHandler } from './index.js';
-import { Status } from '../poker.js';
+import { GuildData, Status } from '../poker.js';
 
 export class MessageHandler implements EventHandler {
     constructor(private triggerHandler: TriggerHandler) { }
@@ -15,10 +15,15 @@ export class MessageHandler implements EventHandler {
         // Process trigger
         await this.triggerHandler.process(msg);
 
-        if (global.pokerData.checkStatus(Status.Naming)) {
-            global.pokerData.setIssue(msg.content);
-            global.pokerData.vote();
-            msg.reply("Issue set!\n please start voting with /vote [value].");
+        // Guild content
+        let guildData: GuildData = global.botData.getGuild(msg.guildId);
+
+        if (guildData.reservedChannel.includes(msg.channelId)) {
+            if (guildData.poker.checkStatus(Status.Naming)) {
+                guildData.poker.setIssue(msg.content);
+                guildData.poker.vote();
+                msg.reply("Issue set!\n please start voting with /vote [value].");
+            }
         }
     }
 }

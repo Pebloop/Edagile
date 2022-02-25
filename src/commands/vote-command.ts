@@ -3,7 +3,7 @@ import { ChatInputApplicationCommandData, CommandInteraction, PermissionString }
 import { RateLimiter } from 'discord.js-rate-limiter';
 
 import { EventData } from '../models/internal-models.js';
-import { Status } from '../poker.js';
+import { GuildData, Status } from '../poker.js';
 import { Lang } from '../services/index.js';
 import { InteractionUtils } from '../utils/index.js';
 import { Command, CommandDeferType } from './index.js';
@@ -24,17 +24,26 @@ export class VoteCommand implements Command {
     public cooldown = new RateLimiter(1, 5000);
     public deferType = CommandDeferType.PUBLIC;
     public requireDev = false;
-    public requireGuild = false;
+    public requireGuild = true;
     public requireClientPerms: PermissionString[] = [];
     public requireUserPerms: PermissionString[] = [];
 
     public async execute(intr: CommandInteraction, data: EventData): Promise<void> {
-        if (global.pokerData.checkStatus(Status.Voting)) {
-            global.pokerData.value = intr.options.get("value").value as number;
-            console.log(intr.options);
-            await InteractionUtils.send(intr, "**" + intr.user.username + "** has voted.");
+        let guildData: GuildData = global.botData.getGuild(intr.guildId);
+
+        if (guildData.reservedChannel.includes(intr.channelId)) {
+
+            if (guildData.poker.checkStatus(Status.Voting)) {
+                guildData.poker.setVote(intr.user, intr.options.get("value").value as number);
+                await InteractionUtils.send(intr, "**" + intr.user.username + "** has voted.");
+            } else {
+                await InteractionUtils.send(intr, "You cannot vote outside of a poker planning.");
+            }
+
         } else {
-            await InteractionUtils.send(intr, "You cannot vote outside of a poker planning.");
+            await intr.user.send("You cannot use this bot in this channel.");
+            await (await InteractionUtils.send(intr, "You cannot use this bot in this channel.")).delete();
         }
+
     }
 }
